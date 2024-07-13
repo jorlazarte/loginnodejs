@@ -1,0 +1,9 @@
+	<main>
+	<h1>CREAR BLOG - userid<%= id %></h1>
+	<form action="/blogs/create" method="post">
+		<input type="text" name="userid" value="<%= id %>"><br>
+		Título<input type="text" name="title"><br>
+		Texto<textarea name="text"></textarea>
+		<button type="submit">Crear!</button>
+	</form>
+	</main>

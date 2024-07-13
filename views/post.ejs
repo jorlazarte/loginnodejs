@@ -1,0 +1,86 @@
+	<main>
+
+	<% if (idPost > 0) { %>
+	<form action="/posts/edit/<%= idPost %>?_method=PUT" method="post" id="frmPost" enctype="multipart/form-data" class="m-auto w-50">
+	<% }else{ %>
+	<form action="/posts/create" method="POST" id="frmPost" enctype="multipart/form-data" class="m-auto w-50">
+	<%}%>
+		<input type="hidden" name="postId" id="postId" value="<%= idPost %>">
+		<input type="hidden" name="postIdUser" id="postIdUser" value="<%= idUser %>">
+		<h1>POSTS <%=action%></h1>
+		<div class="form-group mt-2">
+			<label for="exampleInputEmail1" class="mt-2 mb-2">Título</label>
+			<input type="title" name="postTitle" value="<%= post[0].title %>" class="form-control" id="exampleInputTitle" aria-describedby="titleHelp" placeholder="Enter title">
+		</div>
+		<div class="form-group mb-2">
+			<label for="exampleInputPassword1" class="mt-2 mb-2">Cuerpo del post</label>
+			<textarea class="form-control" name="postBody" id="postBody" rows="3"><%= post[0].textPost %></textarea>
+		</div>
+		<div class="form-group">
+			<label for="exampleFormControlFile1">Imagen</label>
+			<input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
+			<input type="hidden" name="postImgAnt" value="<%= post[0].image %>" size="80" />
+		</div>
+		<div class="form-group mb-2">
+			<label for="exampleInputPassword1" class="mt-2 mb-2">Categoria</label>
+			<select class="form-control" name="postCat" id="postCat" multiple>
+				<%
+				for (const item of cats) {
+				%>
+				<option value="<%=item.id%>" <%=item.tiene_post%> ><%= item.name %></option>
+				<%
+				}
+				%>
+			</select>
+		</div>
+		<button id="btn_<%=action%>Post" class="btn btn-primary" type="submit"><%=action%> Post!</button>
+		<button type="button" class="btn btn-link" onclick="javascript: document.location='/posts'">Volver</button>
+			<!--
+			<tr>
+				<td>
+					Título:&nbsp;
+					<td>
+						<input type="text" name="postTitle" id="postTitle" value="<%= post[0].title %>" />
+					</td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Cuerpo del post:&nbsp;
+				</td>
+				<td>
+					<textarea name="postBody" id="postBody"><%= post[0].textPost %></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Imagen:&nbsp;
+				</td>
+				<td>
+
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Categoria:&nbsp;
+				</td>
+				<td>
+					<select name="postCat" id="postCat" multiple style="width: 250px">
+						<%
+						for (const item of cats) {
+						%>
+						<option value="<%=item.id%>" <%=item.tiene_post%> ><%= item.name %></option>
+						<%
+						}
+						%>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"></td>
+			</tr>
+		</table>
+	-->
+	</form>
+	<script src="/js/<%=action%>Post.js"></script>
+	</main>
