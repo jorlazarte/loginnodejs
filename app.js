@@ -11,6 +11,7 @@ import { authRoutes, config } from './auth/index.js'
 import { usersRoutes } from './users/index.js'
 import { loginRoutes } from './login/index.js'
 import { postsRoutes } from './posts/index.js'
+import { indexRoutes } from './index/index.js'
 import { commentsRoutes } from './comments/index.js'
 
 //npm i express-ejs-layouts
@@ -71,8 +72,6 @@ app.use( '/login', loginRoutes )
 app.use( '/auth', authRoutes )
 app.use( '/users', middlewares.authJWT, usersRoutes )
 app.use( '/posts', postsRoutes )
-app.use( '/comments', commentsRoutes )
+//app.use( '/comments', commentsRoutes )
 
-app.use( '/', (req, res) => {
-	res.render('index', {msg: 'ok', isLogin: req.isAuthenticated} ) 
-} )
+app.use( '/', indexRoutes )

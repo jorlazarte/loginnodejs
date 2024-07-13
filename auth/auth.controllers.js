@@ -99,7 +99,7 @@ const login = async (req, res) => {
 	        .set('authorization', `Bearer ${token}`)
 	        .cookie('token', token, config.cookie)
 	        .cookie('user', result1[0].id)
-	        .redirect('/index')
+	        .redirect('/')
 
 	} catch (error) {
 		console.error('Error al obtener los datos:', error);

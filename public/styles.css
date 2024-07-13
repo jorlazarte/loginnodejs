@@ -13,3 +13,12 @@ main {
 	margin: 0 auto;
 	padding: 20px;
 }
+
+.contenedor
+{
+  width: 100%;
+  height: auto;
+  display: flex !important; / ETIQUETA QUE POSICIONA UNO AL LADO DEL OTRO */
+  flex-wrap: wrap;
+}
+
